@@ -11,7 +11,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  imageName: 'pipelines-flask-docker'
+  imageName: 'abamure/pipelines-flask-docker'
 stages:
 - stage: Build
   displayName: Build image
@@ -32,5 +32,5 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'AkinDockerhubConnection'
-        repository: 'abamure/$(imageName)'
+        repository: '$(imageName)'
         command: 'push'
